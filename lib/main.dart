@@ -17,7 +17,7 @@ class MiAplicacion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dulcería Alegrías',
+      title: 'Nissan Jimena',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -33,7 +33,7 @@ class PaginaSesion extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
   // ignore: prefer_final_fields
   CollectionReference _usersCollection =
-      FirebaseFirestore.instance.collection('usuario');
+      FirebaseFirestore.instance.collection('Usuario');
 
   PaginaSesion({super.key});
 
@@ -42,8 +42,8 @@ class PaginaSesion extends StatelessWidget {
     String contrasena = _passwordController.text;
 
     QuerySnapshot querySnapshot = await _usersCollection
-        .where('email', isEqualTo: email)
-        .where('password', isEqualTo: contrasena)
+        .where('Email', isEqualTo: email)
+        .where('Password', isEqualTo: contrasena)
         .get();
 
     if (querySnapshot.size > 0) {
@@ -80,7 +80,7 @@ class PaginaSesion extends StatelessWidget {
     String contrasena = _passwordController.text;
 
     QuerySnapshot querySnapshot =
-        await _usersCollection.where('email', isEqualTo: email).get();
+        await _usersCollection.where('Email', isEqualTo: email).get();
 
     if (querySnapshot.size > 0) {
       // Mostrar un diálogo de error en caso de que el usuario ya esté registrado
@@ -104,8 +104,8 @@ class PaginaSesion extends StatelessWidget {
     } else {
       // Registrar al usuario en Firestore
       await _usersCollection.add({
-        'email': email,
-        'password': contrasena,
+        'Email': email,
+        'Password': contrasena,
       });
 
       // Mostrar un diálogo de registro exitoso
@@ -134,8 +134,8 @@ class PaginaSesion extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Dulcería Alegrías'),
-        backgroundColor: const Color(0xffb80303),
+        title: const Text('Nissan Jimena'),
+        backgroundColor: const Color(0xff9c9797),
         elevation: 8,
       ),
       body: Padding(
@@ -212,8 +212,8 @@ class PaginaInicio extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Dulcería Alegrías'),
-        backgroundColor: const Color(0xffb80303),
+        title: const Text('Nissam Jimena'),
+        backgroundColor: const Color(0xff9c9797),
         elevation: 8,
       ),
       body: Center(
